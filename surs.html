@@ -1,0 +1,200 @@
+<html>
+<head>   
+<title>SURS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styl_surs.css" />
+</head>
+<body>
+
+   <div id="container">
+   <img  src="tbslogo.png" alt="tbslogo" width="120" height="100"> 
+<h1 id="title" class="glow"> Smart University Restaurant System </h1>
+<br> <br>
+<nav>
+  <ul>
+	<li> <a href="#a" > Description </a> </li>
+	<li> <a href="#b"> Registration </a> </li>
+	<li> <a href="http://www.cpf.gov.tn/cgi-bin/edinar/transact.cgi"> Payment </a> </li>
+	<li> <a href="#c"> Contact us </a> </li>
+	<li> <a href="#d"> Image gallery </a> </li>
+  </ul>
+</nav>
+<br>
+
+
+
+<section id="a">
+<h2> SURS Description </h2>
+
+<p> The university’s dean decided to lessen the pressure on the restaurant staff, 
+reduce the queue size and organize and optimize the process of passing through ticket control. 
+All this shall be done through a QR code now.
+Every student/teacher will receive a card with a unique QR code containing personal data when they register.
+The new SURS will allow the following functionalities: 
+to check if the QR code is included in the database, 
+to make automatic incrementing in the number of meals eaten each time the QR code is scanned, 
+to send a bill that contains the total number of meals, the total amount to be paid, the deadline, and the account number that you need to send money to, at the end of each month, 
+and to refuse access to a specific QR code if its owner did not pay the fees of one month. 
+The restaurant managers may use the SURS to check payments each period and to update the database. 
+The SURS system is intended to manage the limited time of lunch by allowing the targeted audience to move in a faster way and lessen the burden on the staff. 
+The SURS allows the members to pay with their credit/debit cards by transferring money 
+from their personal accounts to the restaurant account each time they receive a bill via e-mails. </p>
+<br>
+</section>
+
+<section id="d">
+<div style="text-align:center">
+  <h2>Image Gallery</h2>
+  <p style="font-size:25px" >You can dicover more about the restaurent and the beautiful events and experiences we had by clicking on the images below:  </p>
+</div>
+
+<!-- The five columns -->
+<div class="row">
+  <div class="column">
+  
+   <div class="tooltip">
+    <img src="restau7.jpg"  width="300" height="250" onclick="myFunction(this);">
+	<span class="tooltiptext">the staff</span>
+   </div>
+  </div>
+  <div class="column">
+   <div class="tooltip">
+    <img src="restau1.jpg"  width="300" height="250" onclick="myFunction(this);">
+	<span class="tooltiptext">meals</span>
+   </div>
+  </div>
+  <div class="column">
+   <div class="tooltip">
+    <img src="restau6.jpg"  width="300" height="250" onclick="myFunction(this);">
+	<span class="tooltiptext">happy faces</span>
+   </div>
+  </div>
+  <div class="column">
+   <div class="tooltip">
+    <img src="restau5.jpg"  width="300" height="250" onclick="myFunction(this);">
+	<span class="tooltiptext">the students</span>
+   </div>
+  </div>
+  <div class="column">
+   <div class="tooltip">
+    <img src="restau10.jpg"  width="300" height="250" onclick="myFunction(this);">
+	<span class="tooltiptext">events</span>
+   </div>
+  </div>
+  <div class="column">
+   <div class="tooltip">
+    <img src="restau11.jpg" width="300" height="250" onclick="myFunction(this);">
+	<span class="tooltiptext">ISO 22000</span>
+   </div>
+  </div>
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" width="650" height="550">
+  <div id="imgtext"></div>
+</div>
+
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  expandImg.src = imgs.src;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+</section>
+
+<section id="b">
+<h2> Registration form </h2>
+<form action="includes/signup.inc.php" method="post">
+    <table>
+    <tr>
+         <td>Teacher Or Student:<br></td>
+	     <td> <input type="radio" name="gender" value= "T"> Teacher
+         <input type="radio" name= "gender" value= "S" checked> Student </td>
+    </tr>
+    <tr>  
+	     <td> <br> First_name: </td> 
+         <td> <br> <input type="text" name="firstname" id="FN" Placeholder="First name" pattern="[A-Za-z]+" required></td>
+    </tr>
+    <tr>
+	<br>
+         <td> <br> Last_name:  </td>
+         <td> <br> <input type="text" id="LN" name="lastname" Placeholder="Last_name" pattern="[A-Za-z]+" required> </td>
+    </tr>
+    <tr>
+	     <td> <br> ID_number:   </td>      
+	     <td> <br> <input type="text" name="IDN" id="ID" placeholder="ID_Number" pattern="[0-9]{8}" title="Eight characters"  required> </td>
+    </tr>
+    <tr>
+	     <td> <br> Email:   </td>      
+	     <td> <br> <input type="email" name="email" id="EM" placeholder="******@***.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required> </td>
+    </tr>
+    <tr>
+	     <td> <br> Phone_number:  </td>       
+	     <td> <br> <input type="text" id="PN" name="phone" placeholder="********" pattern="[0-9]{8}" title="Eight characters" required> </td>
+    </tr>
+    <tr>
+         <td> <br> <input type="submit" value="Submit" onclick="confirmfunction()" >  </td> 
+		 <script>
+			function confirmfunction(){
+			var Pnumber= document.getElementById("PN");
+			var	FNV= document.getElementById("FN");
+			var	LNV= document.getElementById("LN");
+			var	IDNV= document.getElementById("IDN");
+			var	EMV= document.getElementById("EM");
+			if ((Pnumber==""|| Pnumber == null) ||(FNV==""|| FNV == null) || (LNV==""|| LNV == null) ||(IDNV==""|| IDNV == null)||(EMV==""|| EMV == null))
+				{confirm("thank you for filling the form");}
+			else{
+			confirm("thank you for filling the form");}
+			}
+			</script>
+    </tr>
+    </table>   
+</form>
+</section>
+<br>
+
+
+
+<h3 style="font-size:32px"  > Frequently Asked Questions: </h3>
+
+<h4> Can I cancel anytime? </h4>
+   Yes, you just have to inform the restaurant manager to cancel your card.
+<br>
+<h4> Is the monthly fee required? </h4>
+   Yes, because the system will refuse access to a specific QR code if its owner did not pay the fees of one month.
+<br>
+<h4> In case the QR code card is lost, what shoud I do? </h4>
+   You have to inform the restaurant manager so you can have a new card and cancel the old one to avoid the risk that it can be used by someone else.
+<br>
+<h4> Can I have a double dish? </h4>
+   Yes, there is no lmited number of dishs. The system makes automatic incrementing in the number of meals eaten each time the QR code is scanned.
+<br>
+
+<section id="c">
+<div class="contact">
+
+<h2> Get in touch </h2>
+
+<h4>Opening Hours:</h4>
+Mon - Fri : 08 am - 04 pm <br>
+Sat - Sun : Closed <br>
+
+   <h4>Address:</h4> A coté de Tunis Business School - Bir El Kassaa، El Mourouj 2059
+   <h4>Mail:</h4> Contact@tunis-business-school.tn
+   <h4>Phone:</h4>(+216) 79 409 400
+   <h4>Facebook page:</h4> <a href="https://www.facebook.com/restoMorouj/?epa=SEARCH_BOX"> https://www.facebook.com/restoMorouj/?epa=SEARCH_BOX </a>
+</div>
+ 
+<div class="map">
+<h2> Location </h2>  
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.096749457508!2d10.234344014680243!3d36.720237579965094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd37b63c282f5f%3A0x10dc413a3b2b69bd!2sTBS%20Dining%20Hall!5e0!3m2!1sen!2stn!4v1586950486987!5m2!1sen!2stn" width="500" height="450" frameborder="0" style="border:0" allowfullscreen>></iframe><br>
+</div>
+</section>
+<br>
+<button onclick="window.print()" >Print this page</button>
+<br> <br> <br>
+</div>
+</body>
+</html>
